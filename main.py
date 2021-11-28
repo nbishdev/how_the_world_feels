@@ -2,14 +2,12 @@ import argparse
 import collections
 import datetime
 import nltk
-import numpy as np
 import re
 import requests
 import eng_spacysentiment
 import stanza
 import sys
 from nltk.corpus import stopwords
-from nltk.sentiment import SentimentAnalyzer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.stem import SnowballStemmer, WordNetLemmatizer
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
@@ -91,7 +89,7 @@ def text_preprocess(text, contractions_re, contractions_dict, stopwords=None, le
     * Performs lemmatization (optional)
     * Replaces empty strings and NULL entries (before and/or after preprocessing), with the string "emptystring"
     """
-    if text and text is not np.nan and text.lower() != 'nan':
+    if text and text.lower() != 'nan':
         text = text.lower()
         text = expand_contractions(text, contractions_re, contractions_dict)
         text = remove_non_letters(text)
