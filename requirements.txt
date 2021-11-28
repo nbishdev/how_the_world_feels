@@ -1,0 +1,7 @@
+eng_spacysentiment
+nltk
+requests
+scikit-learn
+stanza
+textblob
+wordcloud
